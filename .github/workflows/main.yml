@@ -19,7 +19,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}/main
           mvn -Pnative clean package
-      - name: build native image
+      - name: execute
         run: |
           cd ${{ github.workspace }}/main/target
           ./main
