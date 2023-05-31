@@ -1,0 +1,30 @@
+name: GraalVM Community Edition build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'latest'
+          java-version: '11'
+          components: 'native-image'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: generate agent.jar
+        run: |
+          cd ${{ github.workspace }}/agent
+          mvn clean package
+      - name: build native image
+        run: |
+          cd ${{ github.workspace }}/main
+          mvn -Pnative clean package
+      - name: build native image
+        run: |
+          cd ${{ github.workspace }}/main/target
+          ./main
+      - name: upload result
+        uses: actions/upload-artifact@v1
+        with:
+          name: my-artifact
+          path: ${{ github.workspace }}/main/target
