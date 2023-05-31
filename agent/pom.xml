@@ -35,7 +35,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>./</outputDirectory>
                             <shadedArtifactAttached>false</shadedArtifactAttached>
                             <createDependencyReducedPom>true</createDependencyReducedPom>
                             <createSourcesJar>true</createSourcesJar>

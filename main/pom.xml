@@ -69,7 +69,7 @@
                                     <arguments>
                                         <argument>-classpath</argument>
                                         <classpath/>
-                                        <argument>-javaagent:/home/runner/work/producer/producer/agent/agent-1.0-shaded.jar</argument>
+                                        <argument>-javaagent:/home/runner/work/producer/producer/agent/target/agent-1.0.jar</argument>
                                         <argument>${mainClass}</argument>
                                     </arguments>
                                 </configuration>
